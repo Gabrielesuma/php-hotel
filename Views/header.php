@@ -11,7 +11,15 @@
 
 <body>
     <header>
-        <div class="container text-center">
+        <div class="container d-flex justify-content-between">
             <h1>Hotel</h1>
+            <form action="index.php" method="get" class="d-flex m-1">
+                <select class="form-select" name="parking">
+                    <option value="all">All</option>
+                    <option value="0">No parking</option>
+                    <option value="1">Parking</option>
+                </select>
+                <button type="submit" class="btn btn-outline-success">Search</button>
+            </form>
         </div>
     </header>

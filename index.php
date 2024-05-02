@@ -1,7 +1,15 @@
 <?php
 
 include __DIR__ . "/Models/hotel.php";
-//var_dump($hotels);
+
+if(!empty($_GET['parking']) || $_GET['parking'] == 0) {
+    $parking = $_GET['parking'];
+    $htl = array_filter($hotels, function ($ht) use ($parking){
+        return $ht['parking'] == $parking || $parking == "all";
+    });
+} else {
+    $htl = $hotels;
+}
 
 include __DIR__ . "/Views/header.php";
 ?>
@@ -19,7 +27,7 @@ include __DIR__ . "/Views/header.php";
         </thead>
         <tbody>
             <?php
-                foreach($hotels as $hotel){
+                foreach($htl as $hotel){
                     echo "<tr><td>{$hotel['name']}</td><td>{$hotel['description']}</td><td>{$hotel['parking']}</td><td>{$hotel['vote']}</td><td>{$hotel['distance_to_center']}</td></tr>";
                 }
             ?>

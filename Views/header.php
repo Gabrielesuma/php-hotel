@@ -19,6 +19,14 @@
                     <option value="0">No parking</option>
                     <option value="1">Parking</option>
                 </select>
+                <select class="form-select" name="vote">
+                    <option value="all">All</option>
+                    <option value="1">1 star</option>
+                    <option value="2">2 star</option>
+                    <option value="3">3 star</option>
+                    <option value="4">4 star</option>
+                    <option value="5">5 star</option>
+                </select>
                 <button type="submit" class="btn btn-outline-success">Search</button>
             </form>
         </div>

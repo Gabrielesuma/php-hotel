@@ -2,10 +2,11 @@
 
 include __DIR__ . "/Models/hotel.php";
 
-if(!empty($_GET['parking']) || $_GET['parking'] == 0) {
+if(!empty($_GET['parking']) || $_GET['parking'] == 0 && !empty($_GET['vote'])) {
     $parking = $_GET['parking'];
-    $htl = array_filter($hotels, function ($ht) use ($parking){
-        return $ht['parking'] == $parking || $parking == "all";
+    $vote = $_GET['vote'];
+    $htl = array_filter($hotels, function ($ht) use ($parking, $vote){
+        return ($ht['parking'] == $parking || $parking == "all") && $ht['vote'] >= $vote || $vote == "all";
     });
 } else {
     $htl = $hotels;

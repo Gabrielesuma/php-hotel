@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(isset($_SESSION['userId'])){
+        header('Location: index.php');
+    }
 
     include __DIR__ ."/../Models/user.php";
 
@@ -16,6 +19,6 @@
             $_SESSION['name'] = $user['name'];
             header('Location: index.php');
         } else {
-            
+            header('Location: login.php?error=1');
         }
     }

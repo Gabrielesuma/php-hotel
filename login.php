@@ -4,6 +4,11 @@
 ?>
 
 <main class="container py-4 bg-body-tertiary my-4">
+    <?php
+        if(!empty($_GET['error'])){
+            echo "<div class='alert alert-danger'>Email o password errati</div>";
+        }
+    ?>
     <div class="d-flex justify-content-center align-items-center">
         <form id="loginform" action="login.php" method="POST">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
